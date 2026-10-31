@@ -12,10 +12,10 @@ jobs:
 
       - name: Compile Solution
         run: |
-          msbuild BaseProject_Maotaw/BaseProject_Maotaw.vcxproj /p:Configuration=Release /p:Platform=x64
+          msbuild BaseProject_Maotaw/BaseProject_Maotaw/BaseProject_Maotaw.vcxproj /p:Configuration=Release /p:Platform=x64
           
       - name: Upload Executable Artifact
         uses: actions/upload-artifact@v4
         with:
           name: BaseProject_Maotaw_Executable
-          path: BaseProject_Maotaw/x64/Release/BaseProject_Maotaw.exe
+          path: BaseProject_Maotaw/BaseProject_Maotaw/x64/Release/BaseProject_Maotaw.exe
