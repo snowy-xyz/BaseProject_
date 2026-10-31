@@ -12,7 +12,7 @@ jobs:
 
       - name: Compile Solution
         run: |
-          msbuild *.sln /p:Configuration=Release /p:Platform=x64
+          Get-ChildItem *.sln | ForEach-Object { msbuild $_.FullName /p:Configuration=Release /p:Platform=x64 }
           
       - name: Upload Executable Artifact
         uses: actions/upload-artifact@v4
