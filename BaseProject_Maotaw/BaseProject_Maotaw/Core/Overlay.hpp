@@ -59,7 +59,8 @@ namespace Overlay {
         windowClass.lpfnWndProc = WndProc;
         windowClass.hInstance = instance;
         windowClass.lpszClassName = ClassName;
-        windowClass.hCursor = LoadCursorW(nullptr, IDC_ARROW);
+        windowClass.hCursor = LoadCursorA(nullptr, IDC_ARROW);
+
 
         if (!RegisterClassExW(&windowClass) && GetLastError() != ERROR_CLASS_ALREADY_EXISTS)
             return false;
