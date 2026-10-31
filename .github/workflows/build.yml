@@ -11,11 +11,16 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Compile Solution
+        shell: powershell
         run: |
-          Get-ChildItem *.sln | ForEach-Object { msbuild $_.FullName /p:Configuration=Release /p:Platform=x64 }
+          Get-ChildItem -Recurse -Filter *.sln | ForEach-Object { 
+              msbuild $_.FullName /p:Configuration=Release /p:Platform=x64 
+          }
           
       - name: Upload Executable Artifact
         uses: actions/upload-artifact@v4
         with:
           name: BaseProject_Maotaw_Executable
-          path: "**/Release/*.exe"
+          path: |
+            **/x64/Release/
+            **/Release/
